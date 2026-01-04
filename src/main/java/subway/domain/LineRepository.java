@@ -32,9 +32,9 @@ public class LineRepository {
 
     private static void initLineTwo() {
         List<Station> section = new ArrayList<>();
-        section.add(Station.from("교대역"));
-        section.add(Station.from("강남역"));
-        section.add(Station.from("역삼역"));
+        section.add(StationRepository.getStationByName("교대역"));
+        section.add(StationRepository.getStationByName("강남역"));
+        section.add(StationRepository.getStationByName("역삼역"));
 
         List<TimeLine> timeLine = new ArrayList<>();
         timeLine.add(TimeLine.of(2, 3));
@@ -45,10 +45,10 @@ public class LineRepository {
 
     private static void initLineThree() {
         List<Station> section = new ArrayList<>();
-        section.add(Station.from("교대역"));
-        section.add(Station.from("남부터미널역"));
-        section.add(Station.from("양재역"));
-        section.add(Station.from("매봉역"));
+        section.add(StationRepository.getStationByName("교대역"));
+        section.add(StationRepository.getStationByName("남부터미널역"));
+        section.add(StationRepository.getStationByName("양재역"));
+        section.add(StationRepository.getStationByName("매봉역"));
 
         List<TimeLine> timeLine = new ArrayList<>();
         timeLine.add(TimeLine.of(3, 2));
@@ -60,9 +60,9 @@ public class LineRepository {
 
     private static void initLineBundang() {
         List<Station> section = new ArrayList<>();
-        section.add(Station.from("강남역"));
-        section.add(Station.from("양재역"));
-        section.add(Station.from("양재시민의숲역"));
+        section.add(StationRepository.getStationByName("강남역"));
+        section.add(StationRepository.getStationByName("양재역"));
+        section.add(StationRepository.getStationByName("양재시민의숲역"));
 
         List<TimeLine> timeLine = new ArrayList<>();
         timeLine.add(TimeLine.of(2, 8));
