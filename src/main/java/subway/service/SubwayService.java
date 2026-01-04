@@ -46,21 +46,29 @@ public class SubwayService {
             Station start = shortestDistances.get(i);
             Station next = shortestDistances.get(i + 1);
 
-            for (Line line : LineRepository.lines()) {
-                List<Station> section = line.getSection();
-                List<TimeLine> timeLines = line.getTimeLine();
-
-                if (section.contains(start) && section.contains(next)) {
-                    int startIndex = section.indexOf(start);
-                    int nextIndex = section.indexOf(next);
-                    TimeLine tl = timeLines.get(Math.min(startIndex, nextIndex));
-                    totalTime+= tl.getTime();
-                    totalDistance += tl.getDistance();
-                }
-            }
+            TimeLine tl = calculateTimeLine(start, next);
+            totalDistance += tl.getDistance();
+            totalTime += tl.getTime();
         }
 
         return TimeLine.of(totalDistance, totalTime);
+    }
+
+    private TimeLine calculateTimeLine(Station start, Station next) {
+        TimeLine resultTimeLine = TimeLine.of(0, 0);
+        for (Line line : LineRepository.lines()) {
+            List<Station> section = line.getSection();
+            List<TimeLine> timeLines = line.getTimeLine();
+
+            if (section.contains(start) && section.contains(next)) {
+                int startIndex = section.indexOf(start);
+                int nextIndex = section.indexOf(next);
+                TimeLine tempTimeLine = timeLines.get(Math.min(startIndex, nextIndex));
+                resultTimeLine.addTimeLine(tempTimeLine.getDistance(), tempTimeLine.getTime());
+            }
+        }
+
+        return resultTimeLine;
     }
 
     public void validateContainsStation(String inputStationName) {

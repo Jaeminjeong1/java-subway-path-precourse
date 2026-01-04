@@ -21,4 +21,9 @@ public class TimeLine {
     public int getTime() {
         return time;
     }
+
+    public void addTimeLine(int distance, int time) {
+        this.distance += distance;
+        this.time += time;
+    }
 }
