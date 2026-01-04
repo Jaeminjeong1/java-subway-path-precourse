@@ -1,15 +1,16 @@
 package subway.util;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import static subway.util.ErrorMessage.INPUT_ERROR;
-import static subway.util.ErrorMessage.NUMBER_FORMAT_ERROR;
+import static subway.util.ErrorMessage.RANGE_ERROR;
 
 public class Validator {
 
-    private static final Pattern NUMBER_PATTERN = Pattern.compile("^\\d+$");
-    private static final int MIN_NUM = 1; // 수정
-    private static final int MAX_NUM = 10; // 수정
+    private static final List<String> mainNumber = List.of("1", "Q");
+    private static final List<String> routeNumber = List.of("1", "2", "B");
+    private static final int MIN_NAME_LENGTH = 2;
 
     private Validator() {
     }
@@ -21,24 +22,22 @@ public class Validator {
         }
     }
 
-    // 숫자 형식 검증
-    public static void validateNumberFormat(String input) {
-        if (!NUMBER_PATTERN.matcher(input).matches()) {
-            throw new IllegalArgumentException(NUMBER_FORMAT_ERROR.getMessage());
-        }
-    }
-
-    // 양수인지 검증
-    public static void validatePositive(int value) {
-        if (value <= 0) {
-            throw new IllegalArgumentException("ERROR_MESSAGE");
-        }
-    }
-
     // 값 범위 검증
     public static void validateRange(int value) {
-        if (value < MIN_NUM || value > MAX_NUM) {
-            throw new IllegalArgumentException("ERROR_MESSAGE");
+        if (value < MIN_NAME_LENGTH) {
+            throw new IllegalArgumentException(RANGE_ERROR.getMessage());
+        }
+    }
+
+    public static void validateMainInput(String input) {
+        if (!mainNumber.contains(input)) {
+            throw new IllegalArgumentException(INPUT_ERROR.getMessage());
+        }
+    }
+
+    public static void validateRouteInput(String input) {
+        if (!routeNumber.contains(input)) {
+            throw new IllegalArgumentException(INPUT_ERROR.getMessage());
         }
     }
 }
