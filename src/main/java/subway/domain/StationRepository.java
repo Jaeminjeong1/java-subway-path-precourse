@@ -23,15 +23,8 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
-    public static void addStation(Station station) {
-        stations.add(station);
-    }
 
-    public static void deleteStation(String name) {
-        stations.removeIf(station -> Objects.equals(station.getName(), name));
-    }
-
-    public static boolean validateContains(String stationName) {
+    public static boolean contains(String stationName) {
 
         if (stations.contains(getStationByName(stationName))) {
             return true;

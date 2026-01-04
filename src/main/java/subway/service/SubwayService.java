@@ -72,10 +72,8 @@ public class SubwayService {
     }
 
     public void validateContainsStation(String inputStationName) {
-        for (Station station : StationRepository.stations()) {
-            if (station.getName().equals(inputStationName)) {
-                return;
-            }
+        if (StationRepository.contains(inputStationName)) {
+            return;
         }
         throw new IllegalArgumentException(NOT_CONTAINS_STATION_ERROR.getMessage());
     }
