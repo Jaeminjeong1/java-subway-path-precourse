@@ -11,11 +11,14 @@ public class SubwayController {
     }
 
     public void start() {
-        //프로그램 순서대로 작성
-        // 입력 1
-        // 입력 1
-        // 계산
-        // 출력
+        // 초기 설정
+        init();
+        // 메인화면
+            // 경로기준
+    }
+
+    private void init() {
+        subwayService.init();
     }
 
     // 반환 타입 정하기
