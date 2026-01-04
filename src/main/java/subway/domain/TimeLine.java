@@ -13,4 +13,12 @@ public class TimeLine {
     public static TimeLine of(int distance, int time) {
         return new TimeLine(distance, time);
     }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getTime() {
+        return time;
+    }
 }

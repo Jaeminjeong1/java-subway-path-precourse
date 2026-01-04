@@ -23,7 +23,7 @@ public class Validator {
     }
 
     // 값 범위 검증
-    public static void validateRange(int value) {
+    public static void validateLength(int value) {
         if (value < MIN_NAME_LENGTH) {
             throw new IllegalArgumentException(RANGE_ERROR.getMessage());
         }
