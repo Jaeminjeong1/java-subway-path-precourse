@@ -1,7 +1,6 @@
 package subway.util;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import static subway.util.ErrorMessage.INPUT_ERROR;
 import static subway.util.ErrorMessage.RANGE_ERROR;

@@ -39,6 +39,4 @@ public class InputView {
         Validator.validateLength(input.length());
         return input;
     }
-
-
 }

@@ -28,7 +28,4 @@ public class Line {
     public List<TimeLine> getTimeLine() {
         return List.copyOf(timeLine);
     }
-
-
-    // 추가 기능 구현
 }
