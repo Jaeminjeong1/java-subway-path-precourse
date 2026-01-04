@@ -75,7 +75,7 @@ public class SubwayController {
         if (input.equals("1")) {
             String startStation = inputStartStationAndValidateStation();
             String endStation = inputEndStationAndValidateStation(startStation);
-            List<Station> shortestDistance =subwayService.showShortestDistance(startStation, endStation);
+            List<Station> shortestDistance = subwayService.showShortestDistance(startStation, endStation);
             TimeLine resultTimeLine = subwayService.calculateDistanceAndTime(shortestDistance);
             OutputView.printShortestDistance(shortestDistance, resultTimeLine);
             return;
@@ -83,7 +83,7 @@ public class SubwayController {
         if (input.equals("2")) {
             String startStation = inputStartStationAndValidateStation();
             String endStation = inputEndStationAndValidateStation(startStation);
-            List<Station> shortestDistance =subwayService.showShortestTime(startStation, endStation);
+            List<Station> shortestDistance = subwayService.showShortestTime(startStation, endStation);
             TimeLine resultTimeLine = subwayService.calculateDistanceAndTime(shortestDistance);
             OutputView.printShortestDistance(shortestDistance, resultTimeLine);
         }

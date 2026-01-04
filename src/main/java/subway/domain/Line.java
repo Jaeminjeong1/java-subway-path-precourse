@@ -13,7 +13,7 @@ public class Line {
         this.timeLine = timeLine;
     }
 
-    public static Line of (String name, List<Station> section, List<TimeLine> timeLine) {
+    public static Line of(String name, List<Station> section, List<TimeLine> timeLine) {
         return new Line(name, section, timeLine);
     }
 
